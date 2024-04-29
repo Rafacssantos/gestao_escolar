@@ -24,3 +24,4 @@ class LoginCheckMiddleWare(MiddlewareMixin):
                 pass
             else:
                 return redirect(reverse('login_page'))
+

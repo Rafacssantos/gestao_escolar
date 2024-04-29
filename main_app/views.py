@@ -12,6 +12,16 @@ from .models import Attendance, Session, Subject
 # Create your views here.
 
 
+def home(request):
+	return render(request, 'main_app/home.html')
+
+def contact(request):
+	return render(request, 'main_app/contact.html')
+
+def aboutus(request):
+	return render(request, 'main_app/sobrenos.html')
+
+
 def login_page(request):
     if request.user.is_authenticated:
         if request.user.user_type == '1':

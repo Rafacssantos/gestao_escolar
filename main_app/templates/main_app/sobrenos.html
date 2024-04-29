@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<html>
+<head>
+    <style>
+        /* Estilos para o plano de fundo da página */
+        body {
+            background-image: url("{% static 'dist/img/imagem4.png' %}");
+            background-repeat: no-repeat;
+            background-size: cover; /* Centraliza e dimensiona a imagem para preencher a tela */
+            /* Outros estilos para o plano de fundo... */
+        }
+
+        /* Estilos para a barra de navegação */
+        .navbar {
+            background-color: #343a40; /* Cor de fundo da barra */
+            padding: 18px; /* Espaçamento interno */
+        }
+
+        .navbar-brand {
+            color: #ffffff; /* Cor do texto do botão "Página Inicial" */
+            font-weight: bold; /* Negrito */
+        }
+
+        .navbar-brand:hover {
+            color: #ffffff; /* Cor do texto ao passar o mouse */
+        }
+
+        /* Estilos para a janela transparente */
+        .janela {
+            
+            background-color: transparent; /* Janela transparente */
+            border: none; /* Sem bordas */
+            width: 55%; /* Largura da janela */
+            margin: 60px auto; /* Centralizar na página */
+            padding: 40px; /* Espaçamento interno */
+            color: #030303; /* Cor do texto dentro da janela */
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegação -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="/">Página Inicial</a>
+    </nav>
+
+    <!-- Conteúdo da página -->
+    
+    <div class="janela" contenteditable="true">
+     <p><strong>Seja bem-vindo à Escola 22 de Abril, onde cada aluno é uma parte fundamental da nossa jornada educacional!</strong></p>
+      
+     <p><strong>A Escola 22 de Abril é um espaço de aprendizado e crescimento, onde cada estudante é uma parte essencial do tecido que compõe nossa comunidade. Nosso nome, Carlos Braga, simboliza a conexão entre conhecimento, habilidades e valores.</strong></p>
+
+        <p><strong>Nossa Missão:</strong></p>
+        <p><strong>Promover uma educação holística, que transcende os muros da sala de aula. Na Escola Nó, valorizamos não apenas o desenvolvimento acadêmico, mas também o emocional, social e criativo de nossos alunos.</strong></p>
+
+        <p><strong>Valores:</strong></p>
+        <ul>
+            <li><strong>Respeito:</strong> <strong>Cultivamos um ambiente onde todos são ouvidos e respeitados, independentemente de suas origens ou opiniões.</strong></li>
+            <li><strong>Curiosidade:</strong> <strong>Incentivamos a busca pelo conhecimento e a exploração de novas ideias.</strong></li>
+            <li><strong>Colaboração:</strong> <strong>Acreditamos que juntos somos mais fortes. Aprendemos uns com os outros e crescemos como uma comunidade unida.</strong></li>
+            <li><strong>Sustentabilidade:</strong> <strong>Cuidamos do nosso planeta e ensinamos nossos alunos a serem cidadãos responsáveis.</strong></li>
+        </ul>
+
+        <p><strong>Oferta Educacional:</strong></p>
+        <ul>
+            <li><strong>Currículo Diversificado:</strong> <strong>Além das disciplinas tradicionais, oferecemos aulas de arte, música, esportes e programação.</strong></li>
+            <li><strong>Atividades Extracurriculares:</strong> <strong>Clubes, eventos culturais e projetos sociais enriquecem a experiência dos alunos.</strong></li>
+            <li><strong>Ambiente Inspirador:</strong> <strong>Nossas instalações são projetadas para estimular a criatividade e o aprendizado.</strong></li>
+        </ul>
+
+        <!-- Mais conteúdo aqui... -->
+    </div>
+</body>
+</html>
+{% endblock content %}

@@ -60,7 +60,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
     # My Middleware
-    'main_app.middleware.LoginCheckMiddleWare',
+    #'main_app.middleware.LoginCheckMiddleWare',
 ]
 
 ROOT_URLCONF = 'college_management_system.urls'
@@ -127,7 +127,7 @@ else:
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-BR'
 
 TIME_ZONE = 'UTC'
 
