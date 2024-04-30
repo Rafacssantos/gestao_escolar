@@ -55,15 +55,15 @@
             }).done(function(response){
                 if (response == "True"){
                     $(".email_error").remove()
-                    $("<span class='invalid email_error'>Email Address Already Exist</span>").insertAfter("#id_email");
+                    $("<span class='invalid email_error'>O endereço de e-mail já existe.</span>").insertAfter("#id_email");
                 }
                 else{
                     $(".email_error").remove()
 
-                    $("<span class='valid email_error'>Email Address Available</span>").insertAfter("#id_email");
+                    $("<span class='valid email_error'>Endereço de email disponível</span>").insertAfter("#id_email");
                 }
             }).fail(function(response){
-                $("<span class='alert alert-warning'>Server Could Not Process This</span>").insertAfter("#id_email");
+                $("<span class='alert alert-warning'>O servidor não pôde processar isso.</span>").insertAfter("#id_email");
             })
         }
         })
