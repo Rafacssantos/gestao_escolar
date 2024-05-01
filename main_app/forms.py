@@ -14,7 +14,7 @@ class FormSettings(forms.ModelForm):
 
 class CustomUserForm(FormSettings):
     email = forms.EmailField(required=True)
-    gender = forms.ChoiceField(choices=[('M', 'Male'), ('F', 'Female')])
+    gender = forms.ChoiceField(choices=[('M', 'Masculino'), ('F', 'Feminino')])
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
     address = forms.CharField(widget=forms.Textarea)
@@ -33,7 +33,7 @@ class CustomUserForm(FormSettings):
             for field in CustomUserForm.Meta.fields:
                 self.fields[field].initial = instance.get(field)
             if self.instance.pk is not None:
-                self.fields['password'].widget.attrs['placeholder'] = "Fill this only if you wish to update password"
+                self.fields['password'].widget.attrs['placeholder'] = "Preencha isso apenas se desejar atualizar a senha"
 
     def clean_email(self, *args, **kwargs):
         formEmail = self.cleaned_data['email'].lower()

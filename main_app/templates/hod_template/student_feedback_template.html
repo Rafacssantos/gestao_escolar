@@ -18,12 +18,12 @@
                         <table class="table table-bordered table-hover">
                             <tr>
                                 <th>#</th>
-                                <th>Student</th>
-                                <th>Session</th>
-                                <th>Message</th>
-                                <th>Sent On</th>
-                                <th>Replied On</th>
-                                <th>Action</th>
+                                <th>Estudante</th>
+                                <th>Sessão</th>
+                                <th>Mensagem</th>
+                                <th>Enviado em</th>
+                                <th>Respondido em</th>
+                                <th>Acões</th>
 
                             </tr>
                             {% for feedback in  feedbacks %}
@@ -36,8 +36,8 @@
                                       
                                       {% if feedback.reply == "" %}
                                       <td>{{feedback.created_at}}</td>
-                                      <td><span  class='badge badge-warning'>Pending Response</span></td>
-                                           <td> <button data-toggle = "modal" data-target = "#reply_modal" value="{{feedback.id}}" class="btn btn-success reply_open_modal">Reply</button>
+                                      <td><span  class='badge badge-warning'>Resposta Pendente</span></td>
+                                           <td> <button data-toggle = "modal" data-target = "#reply_modal" value="{{feedback.id}}" class="btn btn-success reply_open_modal">Responder</button>
                                           {% else %}
                                           <td>{{feedback.created_at}}</td>
                                           <td>{{feedback.updated_at}}</td>
@@ -75,16 +75,16 @@
          
          <div class = "modal-body">
              <input type="hidden"  id="id">
-           <p> Reply <span id="reply_name"></span></p>  
+           <p> Responder <span id="reply_name"></span></p>  
            <textarea name="reply_message" id="reply_message" cols="30" rows="10" class="form-control"></textarea>
         </div>
         
         <div class = "modal-footer">
             <button type = "button" class = "btn btn-danger" data-dismiss = "modal">
-                Close
+                Fechar
             </button>
             
-            <button id="reply_btn" class="btn btn-success btn-block">Reply</button>
+            <button id="reply_btn" class="btn btn-success btn-block">Responder</button>
          
          </div>
          
@@ -118,13 +118,13 @@
                     }
                 }).done(function(response){
                     if (response == "True"){
-                        alert("Reply Sent")
+                        alert("Resposta Enviada")
                         location.reload()
                     }else{
-                        alert("Reply Could Not Be Sent")
+                        alert("A resposta não pode ser enviada")
                     }
                 }).fail(function(response){
-                    alert("Error Occured. ")
+                    alert("Ocorreu um Erro. ")
                 })
           })
       })

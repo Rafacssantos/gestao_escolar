@@ -12,12 +12,12 @@
                     <div class="inner">
                         <h3>{{total_attendance}}</h3>
 
-                        <p>Total Attendance</p>
+                        <p>Total de Presenças</p>
                     </div>
                     <div class="icon">
                       <i class="nav-icon fas fa-calendar-alt"></i>
                     </div>
-                    {# <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> #}
+                    {# <a href="#" class="small-box-footer">Mais Informação <i class="fas fa-arrow-circle-right"></i></a> #}
                 </div>
             </div>
             <!-- ./col -->
@@ -27,12 +27,12 @@
                     <div class="inner">
                         <h3>{{ percent_present }}<sup style="font-size: 20px">%</sup></h3>
 
-                        <p>Percentage Present</p>
+                        <p>Percentual de Presença</p>
                     </div>
                     <div class="icon">
                       <i class="nav-icon fas fa-calendar-check"></i>
                     </div>
-                    {# <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> #}
+                    {# <a href="#" class="small-box-footer">Mais informação <i class="fas fa-arrow-circle-right"></i></a> #}
                 </div>
             </div>
             <!-- ./col -->
@@ -42,12 +42,12 @@
                     <div class="inner">
                         <h3>{{percent_absent}}<sup style="font-size: 20px">%</sup></h3>
 
-                        <p>Percentage Absent</p>
+                        <p>Percentual de Ausência</p>
                     </div>
                     <div class="icon">
                       <i class="nav-icon fas fa-calendar-minus"></i>
                     </div>
-                    {# <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> #}
+                    {# <a href="#" class="small-box-footer">Mais informação <i class="fas fa-arrow-circle-right"></i></a> #}
                 </div>
             </div>
             <!-- ./col -->
@@ -57,12 +57,12 @@
                     <div class="inner">
                         <h3>{{total_subject}}</h3>
 
-                        <p>Total Subject</p>
+                        <p>Total de Matérias</p>
                     </div>
                     <div class="icon">
                       <i class="nav-icon fas fa-book"></i>
                     </div>
-                    {# <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> #}
+                    {# <a href="#" class="small-box-footer">Mais informação <i class="fas fa-arrow-circle-right"></i></a> #}
                 </div>
             </div>
             <!-- ./col -->
@@ -129,7 +129,7 @@ $(document).ready(function(){
     var attendanceDataCanvas = $('#attendanceData').get(0).getContext('2d')
     var donutData        = {
       labels: [
-         'Present', 'Absent'
+         'Presença', 'Ausencia'
       ],
       datasets: [
         {
@@ -154,7 +154,7 @@ var areaChartData = {
     labels  : subjects,
     datasets: [
     {
-        label               : 'Present In Class',
+        label               : 'Presente na Aula',
         backgroundColor     : 'rgba(60,141,188,0.9)',
         borderColor         : 'rgba(60,141,188,0.8)',
         pointRadius          : false,
@@ -166,7 +166,7 @@ var areaChartData = {
       },
 
       {
-        label               : 'Absent In Class',
+        label               : 'Ausente na Aula',
         backgroundColor     : 'rgba(210, 214, 222, 1)',
         borderColor         : 'rgba(210, 214, 222, 1)',
         pointRadius         : false,

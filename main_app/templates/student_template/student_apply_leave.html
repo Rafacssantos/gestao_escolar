@@ -18,14 +18,14 @@
                 </div>
                 <!-- /.card -->
 <div class="card card-dark">
-    <div class="card-header"><h3 class="card-title">Leave History</h3></div>
+    <div class="card-header"><h3 class="card-title">Histórico de Ausência</h3></div>
    <div class="table">
 
        <table class="table table-bordered">
            <tr>
                <th>ID</th>
-               <th>Date</th>
-               <th>Message</th>
+               <th>Data</th>
+               <th>Mensagem</th>
                 <th>Status</th>
         </tr>
         {% for leave in leave_history %}
@@ -36,12 +36,12 @@
               <td>
                   
                   {% if leave.status == 0 %}
-                  <span class="badge badge-warning">Pending</span>
+                  <span class="badge badge-warning">Pendente</span>
                   {% elif leave.status == 1 %}
-                  <span class="badge badge-success">Accepted</span>
+                  <span class="badge badge-success">Aprovado</span>
                   
                     {% else %}
-                    <span class="badge badge-danger">Rejected</span>
+                    <span class="badge badge-danger">Recusado</span>
                     
                     {% endif %}
                     

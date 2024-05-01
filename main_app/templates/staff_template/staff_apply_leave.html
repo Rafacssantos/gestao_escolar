@@ -18,15 +18,15 @@
                 </div>
                 <!-- /.card -->
 <div class="card card-default">
-    <div class="card-header"><h3 class="card-title"><b>Leave History</b></h3>
+    <div class="card-header"><h3 class="card-title"><b>Registro de Ausências</b></h3>
    <div class="table">
 
        <table class="table table-bordered table-hover">
            <thead class="thead-dark">
             <tr>
                 <th>ID</th>
-                <th>Date</th>
-                <th>Message</th>
+                <th>Data</th>
+                <th>Mensagem</th>
              <th>Status</th>
          </tr>
            </thead>
@@ -38,12 +38,12 @@
               <td>
                   
                   {% if leave.status == 0 %}
-                  <span class="badge badge-warning">Pending</span>
+                  <span class="badge badge-warning">Pendente</span>
                   {% elif leave.status == 1 %}
-                  <span class="badge badge-success">Accepted</span>
+                  <span class="badge badge-success">Aprovado</span>
                   
                     {% else %}
-                    <span class="badge badge-danger">Rejected</span>
+                    <span class="badge badge-danger">Recusado</span>
                     
                     {% endif %}
                     

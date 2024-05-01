@@ -20,7 +20,7 @@
 
 
                         <div class="form-group">
-                            <label>Subject</label>
+                            <label>Matéria</label>
                             <select name="subject" class="form-control" id='subject'>
                                 <option value="">----</option>
                                 {% for subject in subjects  %}
@@ -29,7 +29,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Session</label>
+                            <label>Sessão</label>
                             <select name="session" class="form-control" id='session'>
                                 <option value="">----</option>
                                 {% for session in sessions  %}
@@ -39,7 +39,7 @@
                         </div>
                         <div class="form-group"><div  style="display: none;" class="alert alert-danger" id='error_attendance'></div>
                                 <div class="alert alert-success" id='success_attendance' style="display: none;"></div>
-                             <button type="button" id='fetch_attendance' class="btn btn-success btn-block">Fetch Attendance</button>
+                             <button type="button" id='fetch_attendance' class="btn btn-success btn-block">Buscar Presença</button>
                         </div>
                     <!-- /.card-body -->
                     
@@ -47,7 +47,7 @@
                                
                             <div class="form-group" style="display: none;" id="attendance_block">
                             <div class="form-group">
-                                <label>Attendance Date</label>
+                                <label>Data da Presença</label>
                                 <select name="attendance_date" id='attendance_date' class="form-control">
                                
                                 </select>
@@ -55,7 +55,7 @@
                             <div class="form-group">
                                 
                             <div id="fetch_student_block" style="display: none;">
-                                <button type="button" id='fetch_student' class="btn btn-success btn-block">Fetch Students</button>
+                                <button type="button" id='fetch_student' class="btn btn-success btn-block">Buscar Alunos</button>
 
                             <!-- <button style="display: none;" type="button" id='save_attendance' class="btn btn-primary btn-block">Save Data</button> -->
 
@@ -119,7 +119,7 @@
 
                 }
             }).fail(function(response){
-                alert("Error While Fetching Data")
+                alert("Erro ao Buscar Dados")
                 $("#error_attendance").html("")
                 $("#error_attendance").show()
                 $("#attendance_block").hide()
@@ -132,7 +132,7 @@
             var attendance_date = $("#attendance_date").val()
             $("#student_data").html(null)
 if (attendance_date.length  == 0){
-    alert("Please Choose A Date");
+    alert("Por favor, escolha uma data");
     $("#save_attendance").hide()
 
     return false;
@@ -146,19 +146,19 @@ if (attendance_date.length  == 0){
             }).done(function (response) {
                 var json_data = JSON.parse(response)
                 if (json_data.length < 1) {
-                    alert("No data to display")
+                    alert("Sem dados para exibir")
             $("#save_attendance").hide()
 
                 } else {
             $("#save_attendance").show()
 
-                    var div_data = "<hr/><div class='form-group'></div><div class='form-group'> <label>Student Attendance</label><div class='row'>"
+                    var div_data = "<hr/><div class='form-group'></div><div class='form-group'> <label>Frequência do Aluno</label><div class='row'>"
 
                     for (key in json_data) {
                         div_data += "<div class='col-lg-3'><div class='form-check custom-control custom-checkbox'><input type='checkbox' class='custom-control-input' " + (json_data[key]['status'] ? "checked='checked'" : "")+" name='student_data[]' value=" + json_data[key]['id'] + " id='checkbox" + json_data[key]['id'] + "' /> <label for='checkbox" + json_data[key]['id'] + "' class='custom-control-label'>" + json_data[key]['name']  + (json_data[key]['status'] ? " [Present] " : " [Absent] ")+"</label></div> </div>"
                     }
                     div_data += "</div></div>"
-                    div_data += "<div class='form-group'><button id='save_attendance' class='btn btn-success' type='button'>Save Attendance</button></div>"
+                    div_data += "<div class='form-group'><button id='save_attendance' class='btn btn-success' type='button'>Salvar Presença</button></div>"
                     $("#student_data").html(div_data)
                 }
             }).fail(function (response) {
@@ -189,14 +189,14 @@ if (attendance_date.length  == 0){
                 }
             }).done(function (response) {
                 if (response == 'OK'){
-                    alert("Updated")
+                    alert("Atualizado")
                 }else{
-                    alert("Error. Please try again")
+                    alert("Erro. Por favor, tente novamente")
                 }
                 location.reload()
                 
             }).fail(function (response) {
-                alert("Error in saving attendance")
+                alert("Erro ao salvar a presença")
             })
 
         })

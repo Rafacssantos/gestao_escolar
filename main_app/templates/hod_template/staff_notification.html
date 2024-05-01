@@ -18,12 +18,12 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
-                                    <th>Full Name</th>
+                                    <th>Nome Completo</th>
                                     <th>Email</th>
-                                    <th>Gender</th>
-                                    <th>Course</th>
+                                    <th>Genero</th>
+                                    <th>Curso</th>
                                     <th>Avatar</th>
-                                    <th>Action</th>
+                                    <th>Acões</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,7 +42,7 @@
                                             src="{{staff.profile_pic}}" alt="">
                                         {% endif %}
                                     </td>
-                                    <td><button data-toggle = "modal" data-target = "#myModal"class="btn btn-primary show_notification" value="{{staff.id}}">Send Notification</button> 
+                                    <td><button data-toggle = "modal" data-target = "#myModal"class="btn btn-primary show_notification" value="{{staff.id}}">Enviar Notificação</button> 
                                     </td>
                                 </tr>
                                 {% endfor %}
@@ -60,7 +60,7 @@
    <div class = "modal-dialog">
       <div class = "modal-content">
          
-         <div class = "modal-header">Send Notification
+         <div class = "modal-header">Enviar Notificação
             <button type = "button" class = "close" data-dismiss = "modal" aria-hidden = "true">
                   &times;
             </button>
@@ -77,11 +77,11 @@
          
          <div class = "modal-footer">
             <button type = "button" class = "btn btn-danger" data-dismiss = "modal">
-               Close
+               Fechar
             </button>
             
             <button type = "button" id='send' class = "btn btn-success send_notification">
-               Send Notification
+               Enviar Notificação
             </button>
          </div>
          
@@ -111,14 +111,14 @@
         }).done(function (response) {
            
           if (response == 'True'){
-            alert("Notification Sent");
+            alert("Notificação Enviada");
             location.reload();
           }else{
-            alert("Notification could not be saved. Please try again.");
+            alert("A notificação não pôde ser salva. Por favor, tente novamente.");
           }
            
         }).fail(function (response) {
-            alert("Error in saving token")
+            alert("Erro ao salvar o token.")
         })
 
     }

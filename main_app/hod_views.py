@@ -68,7 +68,7 @@ def admin_home(request):
         student_name_list.append(student.admin.first_name)
 
     context = {
-        'page_title': "Administrative Dashboard",
+        'page_title': "Painel Administrativo",
         'total_students': total_students,
         'total_staff': total_staff,
         'total_course': total_course,
@@ -158,7 +158,7 @@ def add_course(request):
     form = CourseForm(request.POST or None)
     context = {
         'form': form,
-        'page_title': 'Add Course'
+        'page_title': 'Adicionar Curso'
     }
     if request.method == 'POST':
         if form.is_valid():
@@ -180,7 +180,7 @@ def add_subject(request):
     form = SubjectForm(request.POST or None)
     context = {
         'form': form,
-        'page_title': 'Add Subject'
+        'page_title': 'Adicionar Matéria'
     }
     if request.method == 'POST':
         if form.is_valid():
@@ -208,7 +208,7 @@ def manage_staff(request):
     allStaff = CustomUser.objects.filter(user_type=2)
     context = {
         'allStaff': allStaff,
-        'page_title': 'Manage Staff'
+        'page_title': 'Gerenciar Funcionário'
     }
     return render(request, "hod_template/manage_staff.html", context)
 
@@ -217,7 +217,7 @@ def manage_student(request):
     students = CustomUser.objects.filter(user_type=3)
     context = {
         'students': students,
-        'page_title': 'Manage Students'
+        'page_title': 'Gerenciar Aluno'
     }
     return render(request, "hod_template/manage_student.html", context)
 
@@ -226,7 +226,7 @@ def manage_course(request):
     courses = Course.objects.all()
     context = {
         'courses': courses,
-        'page_title': 'Manage Courses'
+        'page_title': 'Gerenciar Cursos'
     }
     return render(request, "hod_template/manage_course.html", context)
 
@@ -235,7 +235,7 @@ def manage_subject(request):
     subjects = Subject.objects.all()
     context = {
         'subjects': subjects,
-        'page_title': 'Manage Subjects'
+        'page_title': 'Gerenciar Matérias'
     }
     return render(request, "hod_template/manage_subject.html", context)
 
@@ -246,7 +246,7 @@ def edit_staff(request, staff_id):
     context = {
         'form': form,
         'staff_id': staff_id,
-        'page_title': 'Edit Staff'
+        'page_title': 'Editar Funcionario'
     }
     if request.method == 'POST':
         if form.is_valid():
@@ -295,7 +295,7 @@ def edit_student(request, student_id):
     context = {
         'form': form,
         'student_id': student_id,
-        'page_title': 'Edit Student'
+        'page_title': 'Editar Aluno'
     }
     if request.method == 'POST':
         if form.is_valid():
@@ -344,7 +344,7 @@ def edit_course(request, course_id):
     context = {
         'form': form,
         'course_id': course_id,
-        'page_title': 'Edit Course'
+        'page_title': 'Editar Curso'
     }
     if request.method == 'POST':
         if form.is_valid():
@@ -368,7 +368,7 @@ def edit_subject(request, subject_id):
     context = {
         'form': form,
         'subject_id': subject_id,
-        'page_title': 'Edit Subject'
+        'page_title': 'Editar Matéria'
     }
     if request.method == 'POST':
         if form.is_valid():
@@ -392,7 +392,7 @@ def edit_subject(request, subject_id):
 
 def add_session(request):
     form = SessionForm(request.POST or None)
-    context = {'form': form, 'page_title': 'Add Session'}
+    context = {'form': form, 'page_title': 'Adicionar Sessão'}
     if request.method == 'POST':
         if form.is_valid():
             try:
@@ -408,7 +408,7 @@ def add_session(request):
 
 def manage_session(request):
     sessions = Session.objects.all()
-    context = {'sessions': sessions, 'page_title': 'Manage Sessions'}
+    context = {'sessions': sessions, 'page_title': 'Gerenciar Sessão'}
     return render(request, "hod_template/manage_session.html", context)
 
 
@@ -416,7 +416,7 @@ def edit_session(request, session_id):
     instance = get_object_or_404(Session, id=session_id)
     form = SessionForm(request.POST or None, instance=instance)
     context = {'form': form, 'session_id': session_id,
-               'page_title': 'Edit Session'}
+               'page_title': 'Editar Sessão'}
     if request.method == 'POST':
         if form.is_valid():
             try:
@@ -453,7 +453,7 @@ def student_feedback_message(request):
         feedbacks = FeedbackStudent.objects.all()
         context = {
             'feedbacks': feedbacks,
-            'page_title': 'Student Feedback Messages'
+            'page_title': 'Mensagens de Feedback dos Alunos'
         }
         return render(request, 'hod_template/student_feedback_template.html', context)
     else:
@@ -474,7 +474,7 @@ def staff_feedback_message(request):
         feedbacks = FeedbackStaff.objects.all()
         context = {
             'feedbacks': feedbacks,
-            'page_title': 'Staff Feedback Messages'
+            'page_title': 'Mensagens de Feedback dos Funcionários'
         }
         return render(request, 'hod_template/staff_feedback_template.html', context)
     else:
@@ -495,7 +495,7 @@ def view_staff_leave(request):
         allLeave = LeaveReportStaff.objects.all()
         context = {
             'allLeave': allLeave,
-            'page_title': 'Leave Applications From Staff'
+            'page_title': 'Solicitações de Licença dos Funcionários'
         }
         return render(request, "hod_template/staff_leave_view.html", context)
     else:
@@ -520,7 +520,7 @@ def view_student_leave(request):
         allLeave = LeaveReportStudent.objects.all()
         context = {
             'allLeave': allLeave,
-            'page_title': 'Leave Applications From Students'
+            'page_title': 'Solicitações de Licença dos Estudantes'
         }
         return render(request, "hod_template/student_leave_view.html", context)
     else:
@@ -545,7 +545,7 @@ def admin_view_attendance(request):
     context = {
         'subjects': subjects,
         'sessions': sessions,
-        'page_title': 'View Attendance'
+        'page_title': 'Visualizar Presença'
     }
 
     return render(request, "hod_template/admin_view_attendance.html", context)
@@ -580,7 +580,7 @@ def admin_view_profile(request):
     form = AdminForm(request.POST or None, request.FILES or None,
                      instance=admin)
     context = {'form': form,
-               'page_title': 'View/Edit Profile'
+               'page_title': 'Visualizar/Editar Perfil'
                }
     if request.method == 'POST':
         try:
@@ -613,7 +613,7 @@ def admin_view_profile(request):
 def admin_notify_staff(request):
     staff = CustomUser.objects.filter(user_type=2)
     context = {
-        'page_title': "Send Notifications To Staff",
+        'page_title': "Enviar Notificações Para Funcionários",
         'allStaff': staff
     }
     return render(request, "hod_template/staff_notification.html", context)
@@ -622,7 +622,7 @@ def admin_notify_staff(request):
 def admin_notify_student(request):
     student = CustomUser.objects.filter(user_type=3)
     context = {
-        'page_title': "Send Notifications To Students",
+        'page_title': "Enviar Notificações Para Estudantes",
         'students': student
     }
     return render(request, "hod_template/student_notification.html", context)

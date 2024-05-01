@@ -26,8 +26,8 @@
            <tr>
                <th>ID</th>
                <th>Feedback</th>
-               <th>Reply</th>
-            <th>Created At</th>
+               <th>Resposta</th>
+            <th>Data de Criação</th>
         </tr>
         {% for feedback in feedbacks %}
         <tr>
@@ -36,7 +36,7 @@
             <td>
                   
                 {% if feedback.reply == "" %}
-                    <p class="badge badge-warning">No Response Yet</p>
+                    <p class="badge badge-warning">Sem resposta ainda</p>
                     {% else %}
                     {{feedback.reply}}
                 {% endif %}

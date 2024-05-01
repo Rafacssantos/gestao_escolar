@@ -13,7 +13,7 @@ class EditResultView(View):
         resultForm.fields['subject'].queryset = Subject.objects.filter(staff=staff)
         context = {
             'form': resultForm,
-            'page_title': "Edit Student's Result"
+            'page_title': "Editar Resultado do Estudante"
         }
         return render(request, "staff_template/edit_student_result.html", context)
 
