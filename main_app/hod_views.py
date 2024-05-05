@@ -88,7 +88,7 @@ def admin_home(request):
 
 def add_staff(request):
     form = StaffForm(request.POST or None, request.FILES or None)
-    context = {'form': form, 'page_title': 'Add Staff'}
+    context = {'form': form, 'page_title': 'Adicionar Professor'}
     if request.method == 'POST':
         if form.is_valid():
             first_name = form.cleaned_data.get('first_name')
@@ -109,20 +109,20 @@ def add_staff(request):
                 user.address = address
                 user.staff.course = course
                 user.save()
-                messages.success(request, "Successfully Added")
+                messages.success(request, "Cadastrado com Sussesso")
                 return redirect(reverse('add_staff'))
 
             except Exception as e:
-                messages.error(request, "Could Not Add " + str(e))
+                messages.error(request, "Não foi possível adicionar. " + str(e))
         else:
-            messages.error(request, "Please fulfil all requirements")
+            messages.error(request, "Por favor, preencha todos os requisitos.")
 
     return render(request, 'hod_template/add_staff_template.html', context)
 
 
 def add_student(request):
     student_form = StudentForm(request.POST or None, request.FILES or None)
-    context = {'form': student_form, 'page_title': 'Add Student'}
+    context = {'form': student_form, 'page_title': 'Adicionar Estudante'}
     if request.method == 'POST':
         if student_form.is_valid():
             first_name = student_form.cleaned_data.get('first_name')
@@ -145,12 +145,12 @@ def add_student(request):
                 user.student.session = session
                 user.student.course = course
                 user.save()
-                messages.success(request, "Successfully Added")
+                messages.success(request, "Cadastrado com Sussesso")
                 return redirect(reverse('add_student'))
             except Exception as e:
-                messages.error(request, "Could Not Add: " + str(e))
+                messages.error(request, "Não foi possível adicionar: " + str(e))
         else:
-            messages.error(request, "Could Not Add: ")
+            messages.error(request, "Não foi possível adicionar: ")
     return render(request, 'hod_template/add_student_template.html', context)
 
 
@@ -167,12 +167,12 @@ def add_course(request):
                 course = Course()
                 course.name = name
                 course.save()
-                messages.success(request, "Successfully Added")
+                messages.success(request, "Cadastrado com Sussesso")
                 return redirect(reverse('add_course'))
             except:
-                messages.error(request, "Could Not Add")
+                messages.error(request, "Não foi possível adicionar")
         else:
-            messages.error(request, "Could Not Add")
+            messages.error(request, "Não foi possível adicionar")
     return render(request, 'hod_template/add_course_template.html', context)
 
 
@@ -208,7 +208,7 @@ def manage_staff(request):
     allStaff = CustomUser.objects.filter(user_type=2)
     context = {
         'allStaff': allStaff,
-        'page_title': 'Gerenciar Funcionário'
+        'page_title': 'Gerenciar Professor'
     }
     return render(request, "hod_template/manage_staff.html", context)
 
@@ -246,7 +246,7 @@ def edit_staff(request, staff_id):
     context = {
         'form': form,
         'staff_id': staff_id,
-        'page_title': 'Editar Funcionario'
+        'page_title': 'Editar Professor'
     }
     if request.method == 'POST':
         if form.is_valid():
@@ -277,12 +277,12 @@ def edit_staff(request, staff_id):
                 staff.course = course
                 user.save()
                 staff.save()
-                messages.success(request, "Successfully Updated")
+                messages.success(request, "Atualizado com sucesso.")
                 return redirect(reverse('edit_staff', args=[staff_id]))
             except Exception as e:
-                messages.error(request, "Could Not Update " + str(e))
+                messages.error(request, "Não foi possível atualizar. " + str(e))
         else:
-            messages.error(request, "Please fil form properly")
+            messages.error(request, "Por favor, preencha o formulário corretamente.")
     else:
         user = CustomUser.objects.get(id=staff_id)
         staff = Staff.objects.get(id=user.id)
@@ -328,12 +328,12 @@ def edit_student(request, student_id):
                 student.course = course
                 user.save()
                 student.save()
-                messages.success(request, "Successfully Updated")
+                messages.success(request, "Atualizado com sucesso.")
                 return redirect(reverse('edit_student', args=[student_id]))
             except Exception as e:
-                messages.error(request, "Could Not Update " + str(e))
+                messages.error(request, "Não foi possível atualizar. " + str(e))
         else:
-            messages.error(request, "Please Fill Form Properly!")
+            messages.error(request, "Por favor, preencha o formulário corretamente!")
     else:
         return render(request, "hod_template/edit_student_template.html", context)
 
@@ -353,11 +353,11 @@ def edit_course(request, course_id):
                 course = Course.objects.get(id=course_id)
                 course.name = name
                 course.save()
-                messages.success(request, "Successfully Updated")
+                messages.success(request, "Atualizado com sucesso.")
             except:
-                messages.error(request, "Could Not Update")
+                messages.error(request, "Não foi possível atualizar.")
         else:
-            messages.error(request, "Could Not Update")
+            messages.error(request, "Não foi possível atualizar.")
 
     return render(request, 'hod_template/edit_course_template.html', context)
 
@@ -381,12 +381,12 @@ def edit_subject(request, subject_id):
                 subject.staff = staff
                 subject.course = course
                 subject.save()
-                messages.success(request, "Successfully Updated")
+                messages.success(request, "Atualizado com sucesso.")
                 return redirect(reverse('edit_subject', args=[subject_id]))
             except Exception as e:
-                messages.error(request, "Could Not Add " + str(e))
+                messages.error(request, "Não foi possível adicionar. " + str(e))
         else:
-            messages.error(request, "Fill Form Properly")
+            messages.error(request, "Preencha o formulário corretamente.")
     return render(request, 'hod_template/edit_subject_template.html', context)
 
 
@@ -397,12 +397,12 @@ def add_session(request):
         if form.is_valid():
             try:
                 form.save()
-                messages.success(request, "Session Created")
+                messages.success(request, "Sessão Criada")
                 return redirect(reverse('add_session'))
             except Exception as e:
-                messages.error(request, 'Could Not Add ' + str(e))
+                messages.error(request, 'Não foi possível adicionar ' + str(e))
         else:
-            messages.error(request, 'Fill Form Properly ')
+            messages.error(request, 'Preencha o formulário corretamente ')
     return render(request, "hod_template/add_session_template.html", context)
 
 
@@ -421,14 +421,14 @@ def edit_session(request, session_id):
         if form.is_valid():
             try:
                 form.save()
-                messages.success(request, "Session Updated")
+                messages.success(request, "Sessão Atualizada")
                 return redirect(reverse('edit_session', args=[session_id]))
             except Exception as e:
                 messages.error(
-                    request, "Session Could Not Be Updated " + str(e))
+                    request, "Não foi possivel atualizar sessão " + str(e))
                 return render(request, "hod_template/edit_session_template.html", context)
         else:
-            messages.error(request, "Invalid Form Submitted ")
+            messages.error(request, "Formulário inválido enviado ")
             return render(request, "hod_template/edit_session_template.html", context)
 
     else:
@@ -474,7 +474,7 @@ def staff_feedback_message(request):
         feedbacks = FeedbackStaff.objects.all()
         context = {
             'feedbacks': feedbacks,
-            'page_title': 'Mensagens de Feedback dos Funcionários'
+            'page_title': 'Mensagens de Feedback dos Professores'
         }
         return render(request, 'hod_template/staff_feedback_template.html', context)
     else:
@@ -495,7 +495,7 @@ def view_staff_leave(request):
         allLeave = LeaveReportStaff.objects.all()
         context = {
             'allLeave': allLeave,
-            'page_title': 'Solicitações de Licença dos Funcionários'
+            'page_title': 'Solicitações de Licença dos Professores'
         }
         return render(request, "hod_template/staff_leave_view.html", context)
     else:
@@ -600,20 +600,20 @@ def admin_view_profile(request):
                 custom_user.first_name = first_name
                 custom_user.last_name = last_name
                 custom_user.save()
-                messages.success(request, "Profile Updated!")
+                messages.success(request, "Perfil atualizado!")
                 return redirect(reverse('admin_view_profile'))
             else:
-                messages.error(request, "Invalid Data Provided")
+                messages.error(request, "Dados fornecidos inválidos")
         except Exception as e:
             messages.error(
-                request, "Error Occured While Updating Profile " + str(e))
+                request, "Ocorreu um erro ao atualizar o perfil. " + str(e))
     return render(request, "hod_template/admin_view_profile.html", context)
 
 
 def admin_notify_staff(request):
     staff = CustomUser.objects.filter(user_type=2)
     context = {
-        'page_title': "Enviar Notificações Para Funcionários",
+        'page_title': "Enviar Notificações Para Professores",
         'allStaff': staff
     }
     return render(request, "hod_template/staff_notification.html", context)
@@ -685,14 +685,14 @@ def send_staff_notification(request):
 def delete_staff(request, staff_id):
     staff = get_object_or_404(CustomUser, staff__id=staff_id)
     staff.delete()
-    messages.success(request, "Staff deleted successfully!")
+    messages.success(request, "Professor excluído com sucesso!")
     return redirect(reverse('manage_staff'))
 
 
 def delete_student(request, student_id):
     student = get_object_or_404(CustomUser, student__id=student_id)
     student.delete()
-    messages.success(request, "Student deleted successfully!")
+    messages.success(request, "Estudante excluído com sucesso!")
     return redirect(reverse('manage_student'))
 
 
@@ -700,17 +700,17 @@ def delete_course(request, course_id):
     course = get_object_or_404(Course, id=course_id)
     try:
         course.delete()
-        messages.success(request, "Course deleted successfully!")
+        messages.success(request, "Curso excluído com sucesso!")
     except Exception:
         messages.error(
-            request, "Sorry, some students are assigned to this course already. Kindly change the affected student course and try again")
+            request, "Desculpe, alguns alunos já estão atribuídos a este curso. Por favor, altere o curso do aluno afetado e tente novamente.")
     return redirect(reverse('manage_course'))
 
 
 def delete_subject(request, subject_id):
     subject = get_object_or_404(Subject, id=subject_id)
     subject.delete()
-    messages.success(request, "Subject deleted successfully!")
+    messages.success(request, "Matéria excluída com sucesso!")
     return redirect(reverse('manage_subject'))
 
 
@@ -718,8 +718,8 @@ def delete_session(request, session_id):
     session = get_object_or_404(Session, id=session_id)
     try:
         session.delete()
-        messages.success(request, "Session deleted successfully!")
+        messages.success(request, "Sessão excluída com sucesso!")
     except Exception:
         messages.error(
-            request, "There are students assigned to this session. Please move them to another session.")
+            request, "Há alunos atribuídos a esta sessão. Por favor, mova-os para outra sessão.")
     return redirect(reverse('manage_session'))

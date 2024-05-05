@@ -26,7 +26,7 @@ def staff_home(request):
         subject_list.append(subject.name)
         attendance_list.append(attendance_count)
     context = {
-        'page_title': 'Painel de Funcionário - ' + str(staff.admin.last_name) + ' (' + str(staff.course) + ')',
+        'page_title': 'Painel do Professor - ' + str(staff.admin.last_name) + ' (' + str(staff.course) + ')',
         'total_students': total_students,
         'total_attendance': total_attendance,
         'total_leave': total_leave,
@@ -159,12 +159,12 @@ def staff_apply_leave(request):
                 obj.staff = staff
                 obj.save()
                 messages.success(
-                    request, "Application for leave has been submitted for review")
+                    request, "A solicitação de licença foi enviada para Administração")
                 return redirect(reverse('staff_apply_leave'))
             except Exception:
-                messages.error(request, "Could not apply!")
+                messages.error(request, "Não foi possível aplicar!")
         else:
-            messages.error(request, "Form has errors!")
+            messages.error(request, "O formulário contém erros!")
     return render(request, "staff_template/staff_apply_leave.html", context)
 
 
@@ -182,12 +182,12 @@ def staff_feedback(request):
                 obj = form.save(commit=False)
                 obj.staff = staff
                 obj.save()
-                messages.success(request, "Feedback submitted for review")
+                messages.success(request, "Feedback enviado para Administração")
                 return redirect(reverse('staff_feedback'))
             except Exception:
-                messages.error(request, "Could not Submit!")
+                messages.error(request, "Não foi possível enviar!")
         else:
-            messages.error(request, "Form has errors!")
+            messages.error(request, "O formulário contém erros!")
     return render(request, "staff_template/staff_feedback.html", context)
 
 
