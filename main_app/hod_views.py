@@ -193,13 +193,13 @@ def add_subject(request):
                 subject.staff = staff
                 subject.course = course
                 subject.save()
-                messages.success(request, "Successfully Added")
+                messages.success(request, "Adicionado com sussesso!")
                 return redirect(reverse('add_subject'))
 
             except Exception as e:
-                messages.error(request, "Could Not Add " + str(e))
+                messages.error(request, "Não foi possível adicionar. " + str(e))
         else:
-            messages.error(request, "Fill Form Properly")
+            messages.error(request, "Preencha o formulário corretamente.")
 
     return render(request, 'hod_template/add_subject_template.html', context)
 

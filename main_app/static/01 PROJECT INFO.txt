@@ -1,12 +1,7 @@
-**Log on to codeastro.com for more projects!**
+Instruções:
 
-**Developed By Owonubi Job Sunday**
-
-**Instructions**
-- Install the Requirements: pip install -r requirements.txt
-- Then, make database migrations: python manage.py makemigrations
-- python manage.py migrate
-- And finally, run the application: python manage.py runserver
-
-
-**For Admin Login Credentials, please create one using superuser!**
+Instale os Requisitos: pip install -r requirements.txt
+Em seguida, faça as migrações do banco de dados: python manage.py makemigrations
+python manage.py migrate
+E finalmente, execute a aplicação: python manage.py runserver
+Para credenciais de login de administrador, por favor, crie uma usando superusuário!
