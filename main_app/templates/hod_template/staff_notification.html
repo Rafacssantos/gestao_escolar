@@ -19,11 +19,11 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Nome Completo</th>
-                                    <th>Email</th>
+                                    <th>E-mail</th>
                                     <th>Genero</th>
                                     <th>Curso</th>
                                     <th>Avatar</th>
-                                    <th>Acões</th>
+                                    <th>Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -77,11 +77,11 @@
          
          <div class = "modal-footer">
             <button type = "button" class = "btn btn-danger" data-dismiss = "modal">
-               Fechar
+               Close
             </button>
             
             <button type = "button" id='send' class = "btn btn-success send_notification">
-               Enviar Notificação
+                Enviar Notificação
             </button>
          </div>
          
@@ -111,14 +111,14 @@
         }).done(function (response) {
            
           if (response == 'True'){
-            alert("Notificação Enviada");
+            alert("Notification Sent");
             location.reload();
           }else{
-            alert("A notificação não pôde ser salva. Por favor, tente novamente.");
+            alert("Notification could not be saved. Please try again.");
           }
            
         }).fail(function (response) {
-            alert("Erro ao salvar o token.")
+            alert("Error in saving token")
         })
 
     }

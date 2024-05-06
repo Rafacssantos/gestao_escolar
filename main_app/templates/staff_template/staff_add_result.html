@@ -22,7 +22,7 @@
 
 
                         <div class="form-group">
-                            <label>Matéria</label>
+                            <label>Assunto</label>
                             <select name="subject" class="form-control" id='subject'>
                                 <option value="">----</option>
                                 {% for subject in subjects  %}
@@ -33,7 +33,7 @@
 
 
                         <div class="form-group">
-                            <label>Ano Letivo</label>
+                            <label>Sesssão Ano</label>
                             <select name="session" id='session' class="form-control">
                                 <option value="">----</option>
                                 {% for session in sessions  %}
@@ -47,7 +47,7 @@
                     <!-- /.card-body -->
 
                     <div class="card-footer">
-                        <button type="button" id='fetch_student' class="btn btn-primary btn-block">Buscar Alunos</button>
+                        <button type="button" id='fetch_student' class="btn btn-primary btn-block">Buscar Estudante</button>
                         <div class="form-group" id="student_data">
 
                         </div>
@@ -73,7 +73,7 @@
             var session = $("#session").val()
             $("#student_data").html(null)
 if (subject.length  == 0 || session.length == 0){
-    alert("Por favor, selecione o período e a matéria");
+    alert("Please select session and subject");
     return false;
 }
             $.ajax({
@@ -86,19 +86,19 @@ if (subject.length  == 0 || session.length == 0){
             }).done(function (response) {
                 var json_data = JSON.parse(response)
                 if (json_data.length < 1) {
-                    alert("Sem dados para exibir")
+                    alert("No data to display")
                 } else {
-                    var div_data = "<hr/><div class='form-group'> <label> Student List</label> <select class='student_list form-control' name='student_list'> "
+                    var div_data = "<hr/><div class='form-group'> <label> Lista de Estudante</label> <select class='student_list form-control' name='student_list'> "
 
                     for (key in json_data) {
                         div_data += "<option value='" + json_data[key]['id'] + "'>" + json_data[key]['name'] + " </option>"
                     }
                     div_data += "</select></div>"
-                    div_data += "<div class='form-group row'> <div class='col-md-6'> <label> Nota do Teste </label> <input class='form-control' name='test' placeholder='Test Score' max='40' min='0' required type='number' /></div><div class='col-md-6'><label> Exam Score </label>  <input class='form-control' placeholder='Exam Score'  name='exam' max='60' min='0' required type='number' /> </div></div><div class='form-group'><button id='save_attendance' class='btn btn-success' type='submit'>Salvar Resultado</button></div></div>"
+                    div_data += "<div class='form-group row'> <div class='col-md-6'> <label> Nota Teste </label> <input class='form-control' name='test' placeholder='Nota Teste' max='40' min='0' required type='number' /></div><div class='col-md-6'><label> Nota Exame </label>  <input class='form-control' placeholder='Nota Exame'  name='exam' max='60' min='0' required type='number' /> </div></div><div class='form-group'><button id='save_attendance' class='btn btn-success' type='submit'>Salvar Resultado</button></div></div>"
                     $("#student_data").html(div_data)
                 }
             }).fail(function (response) {
-                alert("Erro ao buscar os alunos")
+                alert("Error in fetching students")
             })
 
 

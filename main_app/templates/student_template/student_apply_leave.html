@@ -14,11 +14,11 @@
                         <h3 class="card-title">{{page_title}}</h3>
                     </div>
 
-                    {% include "main_app/form_template.html" with messages=messages  form=form button_text="Apply For Leave"%}
+                    {% include "main_app/form_template.html" with messages=messages  form=form button_text="Deixar Curso"%}
                 </div>
                 <!-- /.card -->
 <div class="card card-dark">
-    <div class="card-header"><h3 class="card-title">Histórico de Ausência</h3></div>
+    <div class="card-header"><h3 class="card-title">Deixar uma historia</h3></div>
    <div class="table">
 
        <table class="table table-bordered">
@@ -38,10 +38,10 @@
                   {% if leave.status == 0 %}
                   <span class="badge badge-warning">Pendente</span>
                   {% elif leave.status == 1 %}
-                  <span class="badge badge-success">Aprovado</span>
+                  <span class="badge badge-success">Aceita</span>
                   
                     {% else %}
-                    <span class="badge badge-danger">Recusado</span>
+                    <span class="badge badge-danger">Rejeitada</span>
                     
                     {% endif %}
                     

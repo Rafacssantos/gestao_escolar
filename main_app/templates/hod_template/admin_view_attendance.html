@@ -44,7 +44,7 @@
 
 
                         <div class="form-group">
-                            <label>Matéria</label>
+                            <label>Assunto</label>
                             <select name="subject" class="form-control" id='subject'>
                                 <option value="">----</option>
                                 {% for subject in subjects  %}
@@ -63,7 +63,7 @@
                         </div>
                         <div class="form-group"><div  style="display: none;" class="alert alert-danger" id='error_attendance'></div>
                                 <div class="alert alert-success" id='success_attendance' style="display: none;"></div>
-                             <button type="button" id='fetch_attendance' class="btn btn-success btn-block">Buscar Presença</button>
+                             <button type="button" id='fetch_attendance' class="btn btn-success btn-block">Buscar presença</button>
                         </div>
                     <!-- /.card-body -->
                     
@@ -71,7 +71,7 @@
                                
                             <div class="form-group" style="display: none;" id="attendance_block">
                             <div class="form-group">
-                                <label>Data de Presença</label>
+                                <label>Data Presença</label>
                                 <select name="attendance_date" id='attendance_date' class="form-control">
                                
                                 </select>
@@ -107,7 +107,7 @@
             $("#student_data").html("")
 
             if (session.length < 1 || subject.length < 1){
-                $("#error_attendance").html("Por favor, escolha tanto a Matéria quanto a Sessão.")
+                $("#error_attendance").html("Kindly Choose Both Subject and Session")
                 $("#attendance_block").hide()
                 $("#error_attendance").show()
                 return false
@@ -136,7 +136,7 @@
                     $("#attendance_block").show()  
                     $("#fetch_student_block").show()
                 }else{
-                    $("#error_attendance").html("Nenhuma Data de Presença Encontrada Para a Data Especificada")
+                    $("#error_attendance").html("No Attendance Date Found For Specified Data")
                     $("#error_attendance").show()
                     $("#attendance_date").html("")
                     $("#attendance_block").hide()
@@ -161,7 +161,7 @@
             var subject = $("#subject").val()
             $("#student_data").html(null)
 if (attendance_date.length  == 0){
-    alert("Por favor, escolha uma data.");
+    alert("Please Choose A Date");
     $("#save_attendance").hide()
 
     return false;
@@ -177,7 +177,7 @@ if (attendance_date.length  == 0){
             }).done(function (response) {
                 var json_data = JSON.parse(response)
                 if (json_data.length < 1) {
-                    alert("Não há dados para exibir")
+                    alert("No data to display")
 
                 } else {
 
@@ -188,7 +188,7 @@ if (attendance_date.length  == 0){
                                 div_data += "<div class='col-lg-3 attendance_div_green'><b>"+ json_data[key]['name'] + "</b><br/>Presente</div>" 
                             }else{
         
-                                div_data += "<div class='col-lg-3 attendance_div_red'><b>"+ json_data[key]['name'] + "</b><br/>Ausente</div>"
+                                div_data += "<div class='col-lg-3 attendance_div_red'><b>"+ json_data[key]['name'] + "</b><br/>Faltou</div>"
                             }
                         }
                        // div_data += "<div class='col-lg-3'><div class='form-check custom-control custom-checkbox'><input type='checkbox' class='custom-control-input' " + (json_data[key]['status'] ? "checked='checked'" : "")+" name='student_data[]' value=" + json_data[key]['id'] + " id='checkbox" + json_data[key]['id'] + "' /> <label for='checkbox" + json_data[key]['id'] + "' class='custom-control-label'>" + json_data[key]['name']  + (json_data[key]['status'] ? " [Present] " : " [Absent] ")+"</label></div> </div>"
@@ -196,7 +196,7 @@ if (attendance_date.length  == 0){
                     $("#student_data").html(div_data)
                 }
             }).fail(function (response) {
-                alert("Erro ao buscar estudantes")
+                alert("Erro ao buscar alunos")
             })
 
         })
