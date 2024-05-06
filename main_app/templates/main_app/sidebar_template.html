@@ -485,6 +485,15 @@
                                         </li>
 
                                         <li class="nav-item">
+                                            {% url 'student_view_result' as student_view_result %}
+                                            <a href="{{student_view_result}}"
+                                                class="nav-link {% if student_view_result == request.path %} active {% endif %}">
+                                                <i class="nav-icon fas fa-calendar-alt"></i>
+                                                <p>Ver Resultado</p>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
                                             {% url 'student_view_notification' as student_view_notification %}
                                             <a href="{{student_view_notification}}"
                                                 class="nav-link {% if student_view_notification == request.path %} active {% endif %}">
@@ -496,18 +505,7 @@
                                             </a>
                                         </li>
 
-                                        <li class="nav-item">
-                                            
-                                            <a href="#"
-                                                class="nav-link">
-                                                <i class="nav-icon fas fa-bars"></i>
-                                                <p>
-                                                    Ver Resultados
-
-                                                </p>
-                                            </a>
-                                        </li>
-
+                                        
                                         <li class="nav-item">
                                             {% url 'student_apply_leave' as student_apply_leave %}
                                             <a href="{{student_apply_leave}}"
