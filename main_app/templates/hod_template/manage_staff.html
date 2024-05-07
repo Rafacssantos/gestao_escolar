@@ -19,7 +19,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Nome Completo</th>
-                                    <th>Email</th>
+                                    <th>E-mail</th>
                                     <th>Genero</th>
                                     <th>Curso</th>
                                     <th>Avatar</th>
@@ -44,7 +44,7 @@
                                     </td>
                                     <td>
                                         <a href="{% url 'edit_staff' staff.staff.id %}" class="btn btn-info">Editar</a> - 
-                                        <a href="{% url 'delete_staff' staff.staff.id %}" class="btn btn-danger" onclick="return confirm('Você tem certeza sobre isso?')">Excluir</a>
+                                        <a href="{% url 'delete_staff' staff.staff.id %}" class="btn btn-danger" onclick="return confirm('Are you sure about this ?')">Deletar</a>
                                     
                                     </td>
                                 </tr>

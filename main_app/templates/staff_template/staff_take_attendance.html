@@ -20,7 +20,7 @@
 
 
                         <div class="form-group">
-                            <label>Matéria</label>
+                            <label>Assunto</label>
                             <select name="subject" class="form-control" id='subject'>
                                 <option value="">----</option>
                                 {% for subject in subjects  %}
@@ -31,7 +31,7 @@
 
 
                         <div class="form-group">
-                            <label>Ano Letivo</label>
+                            <label>Sessão do Ano</label>
                             <select name="session" id='session' class="form-control">
                                 <option value="">----</option>
                                 {% for session in sessions  %}
@@ -51,7 +51,7 @@
                     <!-- /.card-body -->
 
                     <div class="card-footer">
-                        <button type="button" id='fetch_student' class="btn btn-success btn-block">Buscar Alunos</button>
+                        <button type="button" id='fetch_student' class="btn btn-success btn-block">Buscar alunos</button>
                         <div class="form-group" id="student_data">
 
                         </div>
@@ -76,7 +76,7 @@
             var session = $("#session").val()
             $("#student_data").html(null)
 if (subject.length  == 0 || session.length == 0){
-    alert("Por favor, selecione o período e a matéria");
+    alert("Please select session and subject");
     return false;
 }
             $.ajax({
@@ -89,9 +89,9 @@ if (subject.length  == 0 || session.length == 0){
             }).done(function (response) {
                 var json_data = JSON.parse(response)
                 if (json_data.length < 1) {
-                    alert("Sem dados para exibir")
+                    alert("No data to display")
                 } else {
-                    var div_data = "<hr/><div class='form-group'></div><div class='form-group'> <label>Data de Presença</label><input type='date' class='form-control' name='attendance_date' id='attendance_date' ><div class='row'>"
+                    var div_data = "<hr/><div class='form-group'></div><div class='form-group'> <label>Attendance Date</label><input type='date' class='form-control' name='attendance_date' id='attendance_date' ><div class='row'>"
 
                     for (key in json_data) {
                         div_data += "<div class='col-lg-3'><div class='form-check custom-control custom-checkbox'><input type='checkbox' class='custom-control-input' checked='checked' name='student_data[]' value=" + json_data[key]['id'] + " id='checkbox" + json_data[key]['id'] + "' /> <label for='checkbox" + json_data[key]['id'] + "' class='custom-control-label'>" + json_data[key]['name'] + "</label></div> </div>"
@@ -101,7 +101,7 @@ if (subject.length  == 0 || session.length == 0){
                     $("#student_data").html(div_data)
                 }
             }).fail(function (response) {
-                alert("Erro ao buscar alunos")
+                alert("Error in fetching students")
             })
 
 
@@ -118,7 +118,7 @@ if (subject.length  == 0 || session.length == 0){
                 }).get()
                 var attendance_date = $('#attendance_date').val()
                 if (attendance_date.length < 10){
-                    alert("Selecionar data")
+                    alert("Select date")
                     return false;
                 }
                 student_data = JSON.stringify(student_data)
@@ -134,14 +134,14 @@ if (subject.length  == 0 || session.length == 0){
                     }
                 }).done(function (response) {
                     if (response == 'OK'){
-                        alert("Guardado")
+                        alert("Saved")
                     }else{
-                        alert("Erro. Por favor, tente novamente")
+                        alert("Error. Please try again")
                     }
                     location.reload()
                     
                 }).fail(function (response) {
-                    alert("Erro ao salvar a presença")
+                    alert("Error in saving attendance")
                 })
     
             })

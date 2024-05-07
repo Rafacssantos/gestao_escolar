@@ -57,7 +57,7 @@ class CustomUser(AbstractUser):
     objects = CustomUserManager()
 
     def __str__(self):
-        return self.last_name + ", " + self.first_name
+        return self.first_name +" "+self.last_name
 
 
 class Admin(models.Model):
@@ -88,7 +88,7 @@ class Staff(models.Model):
     admin = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.admin.last_name + " " + self.admin.first_name
+        return  self.admin.first_name + " " + self.admin.last_name
 
 
 class Subject(models.Model):

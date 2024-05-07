@@ -17,7 +17,7 @@
                     <div class="icon">
                       <i class="nav-icon fas fa-user-graduate"></i>
                     </div>
-                    <a href="{% url 'manage_student' %}" class="small-box-footer">Mais Informação <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{% url 'manage_student' %}" class="small-box-footer">Mais Informação<i class="fas fa-arrow-circle-right"></i></a>
 
                 </div>
             </div>
@@ -28,7 +28,7 @@
                     <div class="inner">
                         <h3>{{total_staff}}</h3>
 
-                        <p>Total de Funcionários</p>
+                        <p>Total Professores</p>
                     </div>
                     <div class="icon">
                       <i class="nav-icon fas fa-users"></i>
@@ -58,7 +58,7 @@
                     <div class="inner">
                         <h3>{{total_subject}}</h3>
 
-                        <p>Total de Matérias</p>
+                        <p>Total de Assuntos</p>
                     </div>
                     <div class="icon">
                       <i class="nav-icon fas fa-book"></i>
@@ -75,7 +75,7 @@
                 <!-- LINE CHART -->
                 <div class="card card-dark">
                   <div class="card-header">
-                    <h3 class="card-title">Visão Geral de Funcionários e Estudantes</h3>
+                    <h3 class="card-title">Professores - Visão geral dos alunos</h3>
     
                     <div class="card-tools">
                       <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -93,7 +93,7 @@
                 <div class="col-md-6">
                     <div class="card card-dark">
               <div class="card-header">
-                <h3 class="card-title">Presença por Matéria</h3>
+                <h3 class="card-title">Presença por Assunto</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -117,7 +117,7 @@
             <!-- BAR CHART -->
             <div class="card card-dark">
               <div class="card-header">
-                <h3 class="card-title">Visão Geral de Presença e Licença dos Estudantes</h3>
+                <h3 class="card-title">Presença Estudantes & Visão geral de saída </h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -167,7 +167,7 @@
             <!-- PIE CHART -->
             <div class="card card-dark">
               <div class="card-header">
-                <h3 class="card-title">Total de Estudantes em Cada Matéria</h3>
+                <h3 class="card-title">Total de Estudantes em Cada Assunto</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -190,7 +190,7 @@
   <script>
       $(document).ready(function(){
         var donutData        = {
-            labels: ['Students', 'Staff'],
+            labels: ['Estudantes', 'Professroes'],
             datasets: [
               {
                 data:[{{total_students}}, {{total_staff}}],
@@ -219,7 +219,7 @@
       labels  : subject_list,
       datasets: [
       {
-        label               : 'Attendance Per Subject',
+        label               : 'Presença por Assunto',
         backgroundColor     : '#17A2B8',
         borderColor         : 'rgba(60,141,188,0.8)',
         pointRadius          : false,
@@ -299,7 +299,7 @@
         labels  : student_name_list,
         datasets: [
           {
-            label               : 'Absent/Leave',
+            label               : 'Ausentes/Saíram',
             backgroundColor     : '#b50a04',
             borderColor         : '#b50a04',
             pointRadius          : false,
@@ -310,7 +310,7 @@
             data                : student_attendance_leave_list 
           },
           {
-            label               : 'Attendance',
+            label               : 'Presença',
             backgroundColor     : '#5a615c',
             borderColor         : 'rgba(210, 214, 222, 1)',
             pointRadius         : false,

@@ -46,7 +46,7 @@ def student_home(request):
         'data_present': data_present,
         'data_absent': data_absent,
         'data_name': subject_name,
-        'page_title': 'Pagina do Aluno'
+        'page_title': 'Pagina inicial estudante'
 
     }
     return render(request, 'student_template/home_content.html', context)
@@ -59,7 +59,7 @@ def student_view_attendance(request):
         course = get_object_or_404(Course, id=student.course.id)
         context = {
             'subjects': Subject.objects.filter(course=course),
-            'page_title': 'Visualizar Presença'
+            'page_title': 'Ver presença'
         }
         return render(request, 'student_template/student_view_attendance.html', context)
     else:
@@ -92,7 +92,7 @@ def student_apply_leave(request):
     context = {
         'form': form,
         'leave_history': LeaveReportStudent.objects.filter(student=student),
-        'page_title': 'Solicitar licença'
+        'page_title': 'Deixar Curso'
     }
     if request.method == 'POST':
         if form.is_valid():
@@ -116,7 +116,7 @@ def student_feedback(request):
     context = {
         'form': form,
         'feedbacks': FeedbackStudent.objects.filter(student=student),
-        'page_title': 'Opinião do Aluno'
+        'page_title': 'Feedback estudante'
 
     }
     if request.method == 'POST':
@@ -140,7 +140,7 @@ def student_view_profile(request):
     form = StudentEditForm(request.POST or None, request.FILES or None,
                            instance=student)
     context = {'form': form,
-               'page_title': 'Visualizar/Editar Perfil'
+               'page_title': 'Ver/Editar Perfil'
                }
     if request.method == 'POST':
         try:
@@ -165,10 +165,10 @@ def student_view_profile(request):
                 admin.gender = gender
                 admin.save()
                 student.save()
-                messages.success(request, "Perfil atualizado!")
+                messages.success(request, "Profile Updated!")
                 return redirect(reverse('student_view_profile'))
             else:
-                messages.error(request, "Dados Fornecidos Inválidos")
+                messages.error(request, "Invalid Data Provided")
         except Exception as e:
             messages.error(request, "Error Occured While Updating Profile " + str(e))
 

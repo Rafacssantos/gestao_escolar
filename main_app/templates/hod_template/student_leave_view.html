@@ -21,9 +21,9 @@
                                 <th>Estudante</th>
                                 <th>Curso</th>
                                 <th>Mensagem</th>
-                                <th>Data da licença</th>
-                                <th>Enviado Em</th>
-                                <th>Acões</th>
+                                <th>Data de Saída</th>
+                                <th>Enviado em</th>
+                                <th>Ações</th>
 
                             </tr>
                             {% for leave in  allLeave %}
@@ -39,7 +39,7 @@
                                       {% if leave.status == 0 %}
                                            <td> <button data-toggle = "modal" data-target = "#reply_modal" value="{{leave.id}}" class="btn btn-success reply_open_modal">Responder</button>
 {% elif leave.status == -1 %}
-<td><span  class='badge badge-danger'>Recusado</span></td>
+<td><span  class='badge badge-danger'>Reprovdo/span></td>
 {% else %}
 <td><span  class='badge badge-success'>Aprovado</span></td>
 
@@ -77,20 +77,20 @@
          
          <div class = "modal-body">
              <input type="hidden"  id="id">
-           <p> Responder para <span id="reply_name"></span>Pedido de Licença</p>  
+           <p> Reply To <span id="reply_name"></span>'s Leave Request</p>  
            <select id="reply_leave_status" class="form-control">
 <option value="">-- Select --</option>
-<option value="1">Aprovado</option>
-<option value="-1">Recusado</option>
+<option value="1">Approve</option>
+<option value="-1">Reject</option>
            </select>
         </div>
         
         <div class = "modal-footer">
             <button type = "button" class = "btn btn-danger" data-dismiss = "modal">
-                Fechar
+                Close
             </button>
             
-            <button id="reply_btn" class="btn btn-success btn-block">Enviar</button>
+            <button id="reply_btn" class="btn btn-success btn-block">Submit</button>
          
          </div>
          
@@ -125,16 +125,16 @@
         }
     }).done(function(response){
         if (response == "True"){
-            alert("A resposta da licença foi salva!")
+            alert("Leave Response Has Been Saved!")
             location.reload()
         }else{
-            alert("A resposta não pôde ser enviada.")
+            alert("Reply Could Not Be Sent")
         }
     }).fail(function(response){
-        alert("Ocorreu um Erro. ")
+        alert("Error Occured. ")
     })
 }else{
-    alert("Escolha uma resposta válida.")
+    alert("Choose valid response")
 }
 
           })

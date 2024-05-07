@@ -15,7 +15,7 @@
     
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Gestão Escolar | Login</title>
+    <title>C.M.S | Log In</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -35,10 +35,13 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
+
             <a href="" style="color: white;"><b>Sistema</b> Gestão Escolar</a>
+
+            
         </div>
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a href="/ " class="btn btn-outline-primary">Pagina Inicial </a>
+            <a href="/ " class="btn btn-outline-primary">Pagina Inicial</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -61,7 +64,7 @@
                 <form action="doLogin/" method="post">
                     {% csrf_token %}
                     <div class="input-group mb-3">
-                        <input required type="email" name='email' class="form-control" placeholder="Email">
+                        <input required type="email" name='email' class="form-control" placeholder="E-mail">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -69,7 +72,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input required type="password" name='password' class="form-control" placeholder="senha">
+                        <input required type="password" name='password' class="form-control" placeholder="Senha">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -84,7 +87,7 @@
                             <div class="icheck-primary">
                                 <input type="checkbox" id="remember">
                                 <label for="remember">
-                                    Lembre-me
+                                    Lembrar-me
                                 </label>
                             </div>
                         </div>

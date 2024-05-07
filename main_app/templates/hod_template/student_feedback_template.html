@@ -23,7 +23,7 @@
                                 <th>Mensagem</th>
                                 <th>Enviado em</th>
                                 <th>Respondido em</th>
-                                <th>Acões</th>
+                                <th>Ações</th>
 
                             </tr>
                             {% for feedback in  feedbacks %}
@@ -36,7 +36,7 @@
                                       
                                       {% if feedback.reply == "" %}
                                       <td>{{feedback.created_at}}</td>
-                                      <td><span  class='badge badge-warning'>Resposta Pendente</span></td>
+                                      <td><span  class='badge badge-warning'>Pendente de Resposta</span></td>
                                            <td> <button data-toggle = "modal" data-target = "#reply_modal" value="{{feedback.id}}" class="btn btn-success reply_open_modal">Responder</button>
                                           {% else %}
                                           <td>{{feedback.created_at}}</td>
@@ -75,13 +75,13 @@
          
          <div class = "modal-body">
              <input type="hidden"  id="id">
-           <p> Responder <span id="reply_name"></span></p>  
+           <p> Reply <span id="reply_name"></span></p>  
            <textarea name="reply_message" id="reply_message" cols="30" rows="10" class="form-control"></textarea>
         </div>
         
         <div class = "modal-footer">
             <button type = "button" class = "btn btn-danger" data-dismiss = "modal">
-                Fechar
+                Close
             </button>
             
             <button id="reply_btn" class="btn btn-success btn-block">Responder</button>
@@ -118,13 +118,13 @@
                     }
                 }).done(function(response){
                     if (response == "True"){
-                        alert("Resposta Enviada")
+                        alert("Reply Sent")
                         location.reload()
                     }else{
-                        alert("A resposta não pode ser enviada")
+                        alert("Reply Could Not Be Sent")
                     }
                 }).fail(function(response){
-                    alert("Ocorreu um Erro. ")
+                    alert("Error Occured. ")
                 })
           })
       })

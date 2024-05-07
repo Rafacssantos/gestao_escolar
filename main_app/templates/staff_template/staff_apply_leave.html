@@ -14,11 +14,11 @@
                         <h3 class="card-title">{{page_title}}</h3>
                     </div>
 
-                    {% include "main_app/form_template.html" with messages=messages  form=form button_text="Apply For Leave"%}
+                    {% include "main_app/form_template.html" with messages=messages  form=form button_text="Pedir Licença"%}
                 </div>
                 <!-- /.card -->
 <div class="card card-default">
-    <div class="card-header"><h3 class="card-title"><b>Registro de Ausências</b></h3>
+    <div class="card-header"><h3 class="card-title"><b>Deixar uma história</b></h3>
    <div class="table">
 
        <table class="table table-bordered table-hover">
@@ -40,10 +40,10 @@
                   {% if leave.status == 0 %}
                   <span class="badge badge-warning">Pendente</span>
                   {% elif leave.status == 1 %}
-                  <span class="badge badge-success">Aprovado</span>
+                  <span class="badge badge-success">Aceitar</span>
                   
                     {% else %}
-                    <span class="badge badge-danger">Recusado</span>
+                    <span class="badge badge-danger">Reprovado</span>
                     
                     {% endif %}
                     

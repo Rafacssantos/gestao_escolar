@@ -14,7 +14,7 @@
                         <h3 class="card-title">{{page_title}}</h3>
                     </div>
 
-                    {% include "main_app/form_template.html" with messages=messages  form=form button_text="Submit Feedback"%}
+                    {% include "main_app/form_template.html" with messages=messages  form=form button_text="Enviar Feedback"%}
                 </div>
                 <!-- /.card -->
 <div class="card card-dark">
@@ -26,8 +26,8 @@
            <tr>
                <th>ID</th>
                <th>Feedback</th>
-               <th>Resposta</th>
-            <th>Data de Criação</th>
+               <th>Responder</th>
+            <th>Criado em</th>
         </tr>
         {% for feedback in feedbacks %}
         <tr>
@@ -36,7 +36,7 @@
             <td>
                   
                 {% if feedback.reply == "" %}
-                    <p class="badge badge-warning">Sem resposta ainda</p>
+                    <p class="badge badge-warning">No Response Yet</p>
                     {% else %}
                     {{feedback.reply}}
                 {% endif %}

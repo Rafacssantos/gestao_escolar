@@ -26,7 +26,7 @@ body {background-color: coral;}
 </head>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	<a class="navbar-brand" href=""><h3>Bem vindo ao sistema de Gestão Escolar</h3></a>
+	<a class="navbar-brand" href=""><h3>SISTEMA DE GERENCIAMENTO ESCOLAR</h3></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -40,7 +40,7 @@ body {background-color: coral;}
   <a href="{% url 'aboutus_page' %}" class="btn btn-outline-success my-1 mx-2">Sobre nós</a>
 
        <!--<input class="form-control mr-sm-2" type="Register" placeholder="Register" aria-label="Register">-->
-		<a href="/contact" class="btn btn-outline-danger my-1 mx-2">Contate-nos</a>
+		<a href="/contact" class="btn btn-outline-danger my-1 mx-2">Contate-nos</Contate-nos></a>
     </form>
   </div>
 </nav>
@@ -52,6 +52,7 @@ body {background-color: coral;}
   <div class="carousel-inner">
     <div class="carousel-item active">
       {% comment %} <img class="d-block w-100" src="https://images.unsplash.com/20/cambridge.JPG?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1030&q=80" alt="First slide"> {% endcomment %}
+
       <img src="{% static 'dist/img/slider6.png' %}" class="d-block w-100 h-100 size-cover" alt="...">
     </div>
 	      <div class="carousel-item">
@@ -69,15 +70,17 @@ body {background-color: coral;}
     <div class="carousel-item">
       {% comment %} <img class="d-block w-100" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1009&q=80" alt="Third slide"> {% endcomment %}
       <img src="{% static 'dist/img/slider10.png' %}" class="d-block w-100 h-100 size-cover" alt="...">
+
+    
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Anterior</span>
+    <span class="sr-only">Próximo</span>
   </a>
   <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Proximo</span>
+    <span class="sr-only">Anterior</span>
   </a>
 </div>
 
