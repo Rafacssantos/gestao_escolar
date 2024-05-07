@@ -3,6 +3,16 @@
 <html>
 
 <head>
+
+    <style>
+        body {
+        
+            background-image: url("{% static 'dist/img/imagem2.jpg' %}") !important;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+        }
+    </style>
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Gestão Escolar | Login</title>
@@ -23,14 +33,9 @@
 </head>
 
 <body class="hold-transition login-page">
-
-    
-
     <div class="login-box">
-
         <div class="login-logo">
-            <a href=""><b>Sistema</b> Gestão Escolar</a>
-
+            <a href="" style="color: white;"><b>Sistema</b> Gestão Escolar</a>
         </div>
         <nav class="navbar navbar-expand-lg navbar-light">
             <a href="/ " class="btn btn-outline-primary">Pagina Inicial </a>
@@ -73,7 +78,6 @@
                     </div>
                     <div class="input-group mb-3">
                         <div class="g-recaptcha" data-sitekey="6LfswtgZAAAAAJ7bhwqZZtDpBsc75ekH6FWA4Fnt"></div>
-
                     </div>
                     <div class="row">
                         <div class="col-8">
@@ -88,31 +92,22 @@
                         <div class="col-4">
                             <button type="submit" class="btn btn-success btn-block">Entrar</button>
                         </div>
-
-
                         <!-- /.col -->
                     </div>
                 </form>
-
-
                 <p class="mb-1">
                     <a href="{% url 'password_reset' %}">Esqueceu a senha?</a>
                 </p>
-
             </div>
             <!-- /.login-card-body -->
         </div>
-        
     </div>
     <!-- /.login-box -->
-
     <!-- jQuery -->
     <script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
     <!-- Bootstrap 4 -->
     <script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <!-- AdminLTE App -->
     <script src="{% static 'dist/js/adminlte.min.js' %}"></script>
-
 </body>
-
 </html>
