@@ -159,12 +159,12 @@ def staff_apply_leave(request):
                 obj.staff = staff
                 obj.save()
                 messages.success(
-                    request, "Application for leave has been submitted for review")
+                    request, "A aplicação para licença foi enviada para revisão.")
                 return redirect(reverse('staff_apply_leave'))
             except Exception:
-                messages.error(request, "Could not apply!")
+                messages.error(request, "Não foi possível aplicar!")
         else:
-            messages.error(request, "Form has errors!")
+            messages.error(request, "O formulário contém erros!")
     return render(request, "staff_template/staff_apply_leave.html", context)
 
 
@@ -182,12 +182,12 @@ def staff_feedback(request):
                 obj = form.save(commit=False)
                 obj.staff = staff
                 obj.save()
-                messages.success(request, "Feedback submitted for review")
+                messages.success(request, "Feedback enviado para revisão.")
                 return redirect(reverse('staff_feedback'))
             except Exception:
-                messages.error(request, "Could not Submit!")
+                messages.error(request, "Não foi possível enviar!")
         else:
-            messages.error(request, "Form has errors!")
+            messages.error(request, "O formulário contém erros!")
     return render(request, "staff_template/staff_feedback.html", context)
 
 
@@ -221,11 +221,11 @@ def staff_view_profile(request):
                 messages.success(request, "Atualizar Perfil!")
                 return redirect(reverse('staff_view_profile'))
             else:
-                messages.error(request, "Invalid Data Provided")
+                messages.error(request, "Dados fornecidos inválidos.")
                 return render(request, "staff_template/staff_view_profile.html", context)
         except Exception as e:
             messages.error(
-                request, "Error Occured While Updating Profile " + str(e))
+                request, "Ocorreu um erro ao atualizar o perfil. " + str(e))
             return render(request, "staff_template/staff_view_profile.html", context)
 
     return render(request, "staff_template/staff_view_profile.html", context)
@@ -282,7 +282,7 @@ def staff_add_result(request):
                 result.save()
                 messages.success(request, "Notas Salvas")
         except Exception as e:
-            messages.warning(request, "Error Occured While Processing Form")
+            messages.warning(request, "Ocorreu um erro ao processar o formulário.")
     return render(request, "staff_template/staff_add_result.html", context)
 
 

@@ -101,12 +101,12 @@ def student_apply_leave(request):
                 obj.student = student
                 obj.save()
                 messages.success(
-                    request, "Application for leave has been submitted for review")
+                    request, "A aplicação para licença foi enviada para revisão.")
                 return redirect(reverse('student_apply_leave'))
             except Exception:
-                messages.error(request, "Could not submit")
+                messages.error(request, "Não foi possível enviar.")
         else:
-            messages.error(request, "Form has errors!")
+            messages.error(request, "O formulário contém erros!")
     return render(request, "student_template/student_apply_leave.html", context)
 
 
@@ -126,12 +126,12 @@ def student_feedback(request):
                 obj.student = student
                 obj.save()
                 messages.success(
-                    request, "Feedback submitted for review")
+                    request, "Feedback enviado para revisão.")
                 return redirect(reverse('student_feedback'))
             except Exception:
-                messages.error(request, "Could not Submit!")
+                messages.error(request, "Não foi possível enviar!")
         else:
-            messages.error(request, "Form has errors!")
+            messages.error(request, "O formulário contém erros!")
     return render(request, "student_template/student_feedback.html", context)
 
 
@@ -165,12 +165,12 @@ def student_view_profile(request):
                 admin.gender = gender
                 admin.save()
                 student.save()
-                messages.success(request, "Profile Updated!")
+                messages.success(request, "Perfil atualizado!")
                 return redirect(reverse('student_view_profile'))
             else:
-                messages.error(request, "Invalid Data Provided")
+                messages.error(request, "Dados fornecidos inválidos.")
         except Exception as e:
-            messages.error(request, "Error Occured While Updating Profile " + str(e))
+            messages.error(request, "Ocorreu um erro ao atualizar o perfil. " + str(e))
 
     return render(request, "student_template/student_view_profile.html", context)
 

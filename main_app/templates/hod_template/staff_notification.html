@@ -77,7 +77,7 @@
          
          <div class = "modal-footer">
             <button type = "button" class = "btn btn-danger" data-dismiss = "modal">
-               Close
+               Sair
             </button>
             
             <button type = "button" id='send' class = "btn btn-success send_notification">
@@ -111,14 +111,14 @@
         }).done(function (response) {
            
           if (response == 'True'){
-            alert("Notification Sent");
+            alert("Notificação enviada.");
             location.reload();
           }else{
-            alert("Notification could not be saved. Please try again.");
+            alert("A notificação não pôde ser salva. Por favor, tente novamente.");
           }
            
         }).fail(function (response) {
-            alert("Error in saving token")
+            alert("Erro ao salvar o token.")
         })
 
     }

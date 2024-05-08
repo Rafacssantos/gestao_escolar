@@ -77,20 +77,20 @@
          
          <div class = "modal-body">
              <input type="hidden"  id="id">
-           <p> Reply To <span id="reply_name"></span>'s Leave Request</p>  
+           <p>Responder Para <span id="reply_name"></span>Solicitação de Licença</p>  
            <select id="reply_leave_status" class="form-control">
-<option value="">-- Select --</option>
-<option value="1">Approve</option>
-<option value="-1">Reject</option>
+<option value="">-- Selecionar --</option>
+<option value="1">Aprovado</option>
+<option value="-1">Reprovado</option>
            </select>
         </div>
         
         <div class = "modal-footer">
             <button type = "button" class = "btn btn-danger" data-dismiss = "modal">
-                Close
+                Sair
             </button>
             
-            <button id="reply_btn" class="btn btn-success btn-block">Submit</button>
+            <button id="reply_btn" class="btn btn-success btn-block">Enviar</button>
          
          </div>
          
@@ -125,16 +125,16 @@
         }
     }).done(function(response){
         if (response == "True"){
-            alert("Leave Response Has Been Saved!")
+            alert("A resposta à licença foi salva!")
             location.reload()
         }else{
-            alert("Reply Could Not Be Sent")
+            alert("A resposta não pôde ser enviada.")
         }
     }).fail(function(response){
-        alert("Error Occured. ")
+        alert("Ocorreu um Erro. ")
     })
 }else{
-    alert("Choose valid response")
+    alert("Escolha uma resposta válida.")
 }
 
           })

@@ -77,7 +77,7 @@
             }).done(function (response) {
                 var json_data = JSON.parse(response)
                 if (json_data.length < 1) {
-                    alert("No data to display")
+                    alert("Sem dados para exibir.")
                 } else {
                     var div_data = "<option>Selecione o Estudante</option>"
 
@@ -88,7 +88,7 @@
                     $("#id_student").html(div_data)
                 }
             }).fail(function (response) {
-                alert("Error in fetching students")
+                alert("Erro ao buscar alunos.")
             })
                }
 
@@ -114,7 +114,7 @@
                     }
                 }).done(function (response) {
                     if (response == 'False') {
-                        alert("No data to display")
+                        alert("Sem dados para exibir.")
                     } else {
                         var json_data = JSON.parse(response)
                         
@@ -128,7 +128,7 @@
 
                     }
                 }).fail(function (response) {
-                    alert("Error in fetching students")
+                    alert("Erro ao buscar alunos.")
                 })
                }
 

@@ -50,10 +50,10 @@ def doLogin(request, **kwargs):
             captcha_server = requests.post(url=captcha_url, data=data)
             response = json.loads(captcha_server.text)
             if response['success'] == False:
-                messages.error(request, 'Invalid Captcha. Try Again')
+                messages.error(request, 'Captcha inválido. Tente novamente.')
                 return redirect('/')
         except:
-            messages.error(request, 'Captcha could not be verified. Try Again')
+            messages.error(request, 'O Captcha não pôde ser verificado. Tente novamente.')
             return redirect('/')
         
         #Authenticate
@@ -67,7 +67,7 @@ def doLogin(request, **kwargs):
             else:
                 return redirect(reverse("student_home"))
         else:
-            messages.error(request, "Invalid details")
+            messages.error(request, "Detalhes inválidos.")
             return redirect("/")
 
 

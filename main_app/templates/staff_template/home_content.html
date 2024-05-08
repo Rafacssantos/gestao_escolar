@@ -218,7 +218,7 @@
               messaging
                   .requestPermission()
                   .then(function () {
-                      console.log("Notification Permission");
+                      console.log("Permissão de Notificação");
                       return messaging.getToken();
                   })
                   .then(function (token) {
@@ -248,7 +248,7 @@
           messaging.onTokenRefresh(function () {
               messaging.getToken()
                   .then(function (newToken) {
-                      console.log("New Token : " + newToken);
+                      console.log("Novo Token : " + newToken);
                       sendToServer(newToken);
 
                   })

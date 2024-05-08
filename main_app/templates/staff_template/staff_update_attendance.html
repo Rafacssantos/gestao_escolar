@@ -55,7 +55,7 @@
                             <div class="form-group">
                                 
                             <div id="fetch_student_block" style="display: none;">
-                                <button type="button" id='fetch_student' class="btn btn-success btn-block">Fetch Students</button>
+                                <button type="button" id='fetch_student' class="btn btn-success btn-block">Buscar alunos</button>
 
                             <!-- <button style="display: none;" type="button" id='save_attendance' class="btn btn-primary btn-block">Save Data</button> -->
 
@@ -111,7 +111,7 @@
                     $("#attendance_block").show()  
                     $("#fetch_student_block").show()
                 }else{
-                    $("#error_attendance").html("No Attendance Date Found For Specified Data")
+                    $("#error_attendance").html("Não foi encontrada nenhuma data de comparecimento para a data especificada.")
                     $("#error_attendance").show()
                     $("#attendance_date").html("")
                     $("#attendance_block").hide()
@@ -119,7 +119,7 @@
 
                 }
             }).fail(function(response){
-                alert("Error While Fetching Data")
+                alert("Erro ao buscar dados.")
                 $("#error_attendance").html("")
                 $("#error_attendance").show()
                 $("#attendance_block").hide()
@@ -146,23 +146,23 @@ if (attendance_date.length  == 0){
             }).done(function (response) {
                 var json_data = JSON.parse(response)
                 if (json_data.length < 1) {
-                    alert("No data to display")
+                    alert("Não há dados para exibir.")
             $("#save_attendance").hide()
 
                 } else {
             $("#save_attendance").show()
 
-                    var div_data = "<hr/><div class='form-group'></div><div class='form-group'> <label>Student Attendance</label><div class='row'>"
+                    var div_data = "<hr/><div class='form-group'></div><div class='form-group'> <label>Comparecimento do aluno</label><div class='row'>"
 
                     for (key in json_data) {
-                        div_data += "<div class='col-lg-3'><div class='form-check custom-control custom-checkbox'><input type='checkbox' class='custom-control-input' " + (json_data[key]['status'] ? "checked='checked'" : "")+" name='student_data[]' value=" + json_data[key]['id'] + " id='checkbox" + json_data[key]['id'] + "' /> <label for='checkbox" + json_data[key]['id'] + "' class='custom-control-label'>" + json_data[key]['name']  + (json_data[key]['status'] ? " [Present] " : " [Absent] ")+"</label></div> </div>"
+                        div_data += "<div class='col-lg-3'><div class='form-check custom-control custom-checkbox'><input type='checkbox' class='custom-control-input' " + (json_data[key]['status'] ? "checked='checked'" : "")+" name='student_data[]' value=" + json_data[key]['id'] + " id='checkbox" + json_data[key]['id'] + "' /> <label for='checkbox" + json_data[key]['id'] + "' class='custom-control-label'>" + json_data[key]['name']  + (json_data[key]['status'] ? " [Presente] " : " [Ausente] ")+"</label></div> </div>"
                     }
                     div_data += "</div></div>"
-                    div_data += "<div class='form-group'><button id='save_attendance' class='btn btn-success' type='button'>Save Attendance</button></div>"
+                    div_data += "<div class='form-group'><button id='save_attendance' class='btn btn-success' type='button'>Salvar comparecimento</button></div>"
                     $("#student_data").html(div_data)
                 }
             }).fail(function (response) {
-                alert("Error in fetching students")
+                alert("Erro ao buscar alunos.")
             })
 
         })
@@ -189,14 +189,14 @@ if (attendance_date.length  == 0){
                 }
             }).done(function (response) {
                 if (response == 'OK'){
-                    alert("Updated")
+                    alert("Atualizado")
                 }else{
-                    alert("Error. Please try again")
+                    alert("Erro. Por favor, tente novamente.")
                 }
                 location.reload()
                 
             }).fail(function (response) {
-                alert("Error in saving attendance")
+                alert("Erro ao salvar o comparecimento.")
             })
 
         })

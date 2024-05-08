@@ -107,7 +107,7 @@
             $("#student_data").html("")
 
             if (session.length < 1 || subject.length < 1){
-                $("#error_attendance").html("Kindly Choose Both Subject and Session")
+                $("#error_attendance").html("Por favor, escolha tanto a disciplina quanto a sessão.")
                 $("#attendance_block").hide()
                 $("#error_attendance").show()
                 return false
@@ -136,7 +136,7 @@
                     $("#attendance_block").show()  
                     $("#fetch_student_block").show()
                 }else{
-                    $("#error_attendance").html("No Attendance Date Found For Specified Data")
+                    $("#error_attendance").html("Nenhuma data de presença encontrada para os dados especificados.")
                     $("#error_attendance").show()
                     $("#attendance_date").html("")
                     $("#attendance_block").hide()
@@ -177,7 +177,7 @@ if (attendance_date.length  == 0){
             }).done(function (response) {
                 var json_data = JSON.parse(response)
                 if (json_data.length < 1) {
-                    alert("No data to display")
+                    alert("Sem dados para exibir.")
 
                 } else {
 

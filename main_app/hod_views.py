@@ -397,7 +397,7 @@ def add_session(request):
         if form.is_valid():
             try:
                 form.save()
-                messages.success(request, "Session Created")
+                messages.success(request, "Sessão criada.")
                 return redirect(reverse('add_session'))
             except Exception as e:
                 messages.error(request, 'Não pode atualizar ' + str(e))
@@ -416,7 +416,7 @@ def edit_session(request, session_id):
     instance = get_object_or_404(Session, id=session_id)
     form = SessionForm(request.POST or None, instance=instance)
     context = {'form': form, 'session_id': session_id,
-               'page_title': 'Edit Session'}
+               'page_title': 'Editar Sessão'}
     if request.method == 'POST':
         if form.is_valid():
             try:
@@ -428,7 +428,7 @@ def edit_session(request, session_id):
                     request, "Sessão não pode ser atualizada " + str(e))
                 return render(request, "hod_template/edit_session_template.html", context)
         else:
-            messages.error(request, "Invalid Form Submitted ")
+            messages.error(request, "Formulário enviado inválido. ")
             return render(request, "hod_template/edit_session_template.html", context)
 
     else:
@@ -721,5 +721,5 @@ def delete_session(request, session_id):
         messages.success(request, "Sessão deletada com sucesso!")
     except Exception:
         messages.error(
-            request, "TDesculpe, alguns alunos já estão matriculados nesta sessão. Escolha outra sessão")
+            request, "Desculpe, alguns alunos já estão matriculados nesta sessão. Escolha outra sessão")
     return redirect(reverse('manage_session'))

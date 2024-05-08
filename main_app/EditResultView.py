@@ -34,7 +34,7 @@ class EditResultView(View):
                 messages.success(request, "Atualizar Resultado")
                 return redirect(reverse('edit_student_result'))
             except Exception as e:
-                messages.warning(request, "Result Could Not Be Updated")
+                messages.warning(request, "O resultado não pôde ser atualizado.")
         else:
-            messages.warning(request, "Result Could Not Be Updated")
+            messages.warning(request, "O resultado não pôde ser atualizado.")
         return render(request, "staff_template/edit_student_result.html", context)

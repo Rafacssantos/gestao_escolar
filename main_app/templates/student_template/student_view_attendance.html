@@ -56,13 +56,13 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Data inicio</label>
-                                    <input type="date" class="form-control" placeholder="Start Date" name="start_date" required id="start_date">
+                                    <input type="date" class="form-control" placeholder="Data de início" name="start_date" required id="start_date">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Data final</label>
-                                    <input type="date" class="form-control" placeholder="End Date" name="end_date"  id="end_date">
+                                    <input type="date" class="form-control" placeholder="Data Final" name="end_date"  id="end_date">
                                 </div>
                             </div>
                             <button type="button" id="fetch_attendance" class="btn btn-success btn-block">Buscar data de presença</button>
@@ -95,7 +95,7 @@
             var start_date = $("#start_date").val()
             var end_date = $("#end_date").val()
             if (subject.length  == 0 || end_date.length ==0 ||start_date.length == 0){
-                alert("Please Select Subject and Date Range");
+                alert("Por favor, selecione a matéria e o intervalo de datas");
                 return false;
             }
             $("#attendance_data").html(null)
@@ -110,17 +110,17 @@
             }).done(function (response) {
                 var json_data = JSON.parse(response)
                 if (json_data.length < 1) {
-                    $("#attendance_data").html("<div class='col-md-12 alert alert-danger'>No Data For Specified Parameters</div>")
+                    $("#attendance_data").html("<div class='col-md-12 alert alert-danger'>Sem dados para os parâmetros especificados.</div>")
 
                 } else {
                     var div_data = ""
                          
                     for (key in json_data) {
                     if (json_data[key]['status']){
-                        div_data += "<div class='col-lg-3 attendance_div_green'><b>"+ json_data[key]['date'] + "</b><br/>Present</div>" 
+                        div_data += "<div class='col-lg-3 attendance_div_green'><b>"+ json_data[key]['date'] + "</b><br/>Presente</div>" 
                     }else{
 
-                        div_data += "<div class='col-lg-3 attendance_div_red'><b>"+ json_data[key]['date'] + "</b><br/>Absent</div>"
+                        div_data += "<div class='col-lg-3 attendance_div_red'><b>"+ json_data[key]['date'] + "</b><br/>Ausente</div>"
                     }
                 }
                     div_data += ""
@@ -128,7 +128,7 @@
 
                 }
             }).fail(function (response) {
-                $("#attendance_data").html("Error While Fetching Records")
+                $("#attendance_data").html("Erro ao buscar registros.")
             })
 
 

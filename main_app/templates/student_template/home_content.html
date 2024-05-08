@@ -227,7 +227,7 @@ var barChart = new Chart(barChartCanvas, {
                 messaging
                     .requestPermission()
                     .then(function () {
-                        console.log("Notification Permission");
+                        console.log("Permissão de notificação");
                         return messaging.getToken();
                     })
                     .then(function (token) {
@@ -257,7 +257,7 @@ var barChart = new Chart(barChartCanvas, {
             messaging.onTokenRefresh(function () {
                 messaging.getToken()
                     .then(function (newToken) {
-                        console.log("New Token : " + newToken);
+                        console.log("Novo Token : " + newToken);
                         sendToServer(newToken);
   
                     })

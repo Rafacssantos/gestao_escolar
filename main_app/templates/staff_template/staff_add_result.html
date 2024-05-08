@@ -33,7 +33,7 @@
 
 
                         <div class="form-group">
-                            <label>Sesssão Ano</label>
+                            <label>Ano Letivo</label>
                             <select name="session" id='session' class="form-control">
                                 <option value="">----</option>
                                 {% for session in sessions  %}
@@ -98,7 +98,7 @@ if (subject.length  == 0 || session.length == 0){
                     $("#student_data").html(div_data)
                 }
             }).fail(function (response) {
-                alert("Error in fetching students")
+                alert("Erro ao buscar alunos")
             })
 
 

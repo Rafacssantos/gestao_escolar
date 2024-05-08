@@ -73,16 +73,16 @@
          
          <div class = "modal-body">
              <input type="hidden"  id="id">
-           <p> Reply <span id="reply_name"></span></p>  
+           <p> Responder <span id="reply_name"></span></p>  
            <textarea name="reply_message" id="reply_message" cols="30" rows="10" class="form-control"></textarea>
         </div>
         
         <div class = "modal-footer">
             <button type = "button" class = "btn btn-danger" data-dismiss = "modal">
-                Close
+                Sair
             </button>
             
-            <button id="reply_btn" class="btn btn-success btn-block">Reply</button>
+            <button id="reply_btn" class="btn btn-success btn-block">Responder</button>
          
          </div>
          
@@ -116,13 +116,13 @@
                     }
                 }).done(function(response){
                     if (response == "True"){
-                        alert("Reply Sent")
+                        alert("Resposta Enviada")
                         location.reload()
                     }else{
-                        alert("Reply Could Not Be Sent")
+                        alert("A resposta não pôde ser enviada.")
                     }
                 }).fail(function(response){
-                    alert("Error Occured. ")
+                    alert("Ocorreu um erro. ")
                 })
           })
       })
