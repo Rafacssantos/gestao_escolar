@@ -520,7 +520,7 @@ def view_student_leave(request):
         allLeave = LeaveReportStudent.objects.all()
         context = {
             'allLeave': allLeave,
-            'page_title': 'Deixa inscrição do Estudante'
+            'page_title': 'Deixar inscrição do Estudante'
         }
         return render(request, "hod_template/student_leave_view.html", context)
     else:

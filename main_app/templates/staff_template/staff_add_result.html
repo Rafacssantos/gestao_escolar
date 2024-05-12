@@ -73,7 +73,7 @@
             var session = $("#session").val()
             $("#student_data").html(null)
 if (subject.length  == 0 || session.length == 0){
-    alert("Please select session and subject");
+    alert("Selecione a sessão e o assunto");
     return false;
 }
             $.ajax({
@@ -86,7 +86,7 @@ if (subject.length  == 0 || session.length == 0){
             }).done(function (response) {
                 var json_data = JSON.parse(response)
                 if (json_data.length < 1) {
-                    alert("No data to display")
+                    alert("Não há dados para exibir")
                 } else {
                     var div_data = "<hr/><div class='form-group'> <label> Lista de Estudante</label> <select class='student_list form-control' name='student_list'> "
 

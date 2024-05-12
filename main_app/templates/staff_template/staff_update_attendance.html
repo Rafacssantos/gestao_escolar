@@ -82,7 +82,7 @@
             var subject = $("#subject").val()
             var session = $("#session").val()
             if (session.length < 1 || subject.length < 1){
-                $("#error_attendance").html("Kindly Choose Both Subject and Session")
+                $("#error_attendance").html("Por favor, escolha o assunto e a sessão")
                 $("#attendance_block").hide()
                 $("#error_attendance").show()
                 return false
@@ -132,7 +132,7 @@
             var attendance_date = $("#attendance_date").val()
             $("#student_data").html(null)
 if (attendance_date.length  == 0){
-    alert("Please Choose A Date");
+    alert("Escolha uma data");
     $("#save_attendance").hide()
 
     return false;
@@ -168,7 +168,7 @@ if (attendance_date.length  == 0){
         })
         $(document).on('click', '#save_attendance', function () {
             //$(this).attr("disabled","disabled")
-            $(this).text("Updating Attendance Data...")
+            $(this).text("Atualizando dados de presença...")
             var student_data = $("input[name='student_data[]']").map(function () {
                 if ($(this).is(":checked")){
                 return {'id':$(this).val(), 'status': 1};

@@ -76,7 +76,7 @@
             var session = $("#session").val()
             $("#student_data").html(null)
 if (subject.length  == 0 || session.length == 0){
-    alert("Please select session and subject");
+    alert("Selecione a sessão e o assunto");
     return false;
 }
             $.ajax({
@@ -89,7 +89,7 @@ if (subject.length  == 0 || session.length == 0){
             }).done(function (response) {
                 var json_data = JSON.parse(response)
                 if (json_data.length < 1) {
-                    alert("No data to display")
+                    alert("Não há dados para exibir")
                 } else {
                     var div_data = "<hr/><div class='form-group'></div><div class='form-group'> <label>Data de comparecimento</label><input type='date' class='form-control' name='attendance_date' id='attendance_date' ><div class='row'>"
 
@@ -107,7 +107,7 @@ if (subject.length  == 0 || session.length == 0){
 
             $(document).on('click', '#save_attendance', function () {
                 $(this).attr("disabled","disabled")
-                $(this).text("Saving Attendance Data...")
+                $(this).text("Salvando dados de presença...")
                 var student_data = $("input[name='student_data[]']").map(function () {
                     if ($(this).is(":checked")){
                     return {'id':$(this).val(), 'status': 1};
